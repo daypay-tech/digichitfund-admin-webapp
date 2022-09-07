@@ -1,0 +1,31 @@
+<div>
+  <div>
+    <div [style.margin-top]="'30px'" *ngFor="let question of questions; let idx = index">
+      <label class="p-2">Question {{idx + 1}}</label>
+      <div id="question">
+        <div class="form">
+          <mat-form-field appearance="outline" floatLabel="always" style="width: 100%;">
+            <input matInput placeholder="Enter Question here " class="place-holder-center" [(ngModel)]=question.question
+              autocomplete="off" readonly>
+          </mat-form-field>
+        </div>
+      </div>
+      <div *ngFor="let option of question.options; index as pollIdx" class="p-2">
+        <label>Option {{pollIdx + 1}}</label>
+        <div id="question">
+          <div class="option">
+            <mat-form-field appearance="outline" class="fitQuestions">
+              <input matInput placeholder="Enter Option" [(ngModel)]=option.option class="place-holder-center"
+                autocomplete="off" readonly>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <hr class="line">
+    </div>
+
+  </div>
+  <div class="btn">
+    <button mat-raised-button class="btn1" (click)="closeDialog()">Close</button>
+  </div>
+</div>

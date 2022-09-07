@@ -1,0 +1,52 @@
+<div id="dashboard">
+    <div fxLayout="row" fxLayout.xs="column"  fxLayoutAlign.xs="end center" fxLayoutAlign="space-between stretch" fxFlex="100%" fxFlexFill>
+      <div fxFlexFill fxLayout="row" fxLayout.xs="column">
+        <div class="left-menu" fxFlex="40" fxLayoutAlign="center center"  fxLayout="column" fxFlexFill>
+            <div>
+                <mat-card-header>
+                    <mat-card-title class="title">NavPulse</mat-card-title>
+                </mat-card-header >
+            </div>
+            <div>
+                <mat-card-header>
+                    <mat-card-title class="hint">An on-demand, crowdsourced, versatile Ear to the ground</mat-card-title>
+                </mat-card-header>
+            </div>
+        </div>
+        <div fxFlex class="content" fxFlex="60" fxLayoutAlign="center center"  fxLayout="column" >
+          <mat-card-header class="p-5">
+            <mat-card-title class="content-title">Sign in to NavPulse</mat-card-title>
+          </mat-card-header>
+
+          <div *ngIf="loginType == 'admin'">
+            <mat-label>Organization</mat-label>
+            <br>
+            <mat-form-field appearance="outline">
+              <mat-select [(ngModel)] = "orgId">
+                <mat-option *ngFor="let org of orgs"  [value]="org.id">{{org.orgName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-label>User Name</mat-label>
+            <br>
+            <mat-form-field appearance="outline">
+                <input matInput [(ngModel)]="username">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-label>Password</mat-label>
+            <br>
+            <mat-form-field appearance="outline">
+               <input matInput type="password" [(ngModel)]="password">
+            </mat-form-field>
+            </div>
+            <div class="mt-3">
+              <button class="btn" mat-raised-button (click)="onSubmit()">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    

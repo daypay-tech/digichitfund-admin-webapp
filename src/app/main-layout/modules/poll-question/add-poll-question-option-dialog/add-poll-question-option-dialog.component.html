@@ -1,0 +1,22 @@
+<div>
+    <div fxLayout="row" fxLayoutGap="20px">
+        <button mat-raised-button class="btn" (click)=addOption()><mat-icon>add_circle_outline</mat-icon> Add Option</button>
+    </div>
+    <!-- options-->
+    <div style="min-height: 200px;overflow-y: auto;">
+        <div fxLayout="row" fxLayoutGap="20px"  [style.margin-top]="'12px'" *ngFor="let option of options; let idx = index">
+          <div fxFlex="80">
+            <mat-form-field>
+              <input matInput placeholder="Option {{idx + 1}}" [(ngModel)]=option.option class="place-holder-center" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div fxFlex="20">
+            <button mat-raised-button class="btnn" (click)="removeOption(idx)"><mat-icon>remove_circle</mat-icon>Remove</button>
+          </div>
+        </div>
+    </div>
+    <div class="btn">
+        <button mat-raised-button class="btn1" (click)="saveQuestionOption()">Save</button>
+        <button mat-raised-button class="btn1" (click)="cancelDialog()">Cancel</button>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+table {
+  width: 100%;
+  height: max-content;
+  border-collapse:inherit;
+}
+.example-container {
+  
+  overflow: auto;
+  box-shadow: none;
+  border-radius: 7px;
+}
+.head{
+  font-size: 23px;
+}
+.btn1 {
+  color: #ffffff;
+  background-color: #40a3dd;
+  width: 140px;
+  height: 35px;
+  border-radius: 3px;
+  margin-top: 3%;
+}
+.mat-elevation-z8{
+  box-shadow: none;
+}
+
+.mat-card-header {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.header{
+  margin: 20px;
+}
+.sizeDot8{
+  transform: scale(0.8);
+  position: relative;
+  right: 4px;
+  bottom: 2px;
+
+}
+
+.rightBtnText{
+  margin-right: 4px;
+}
+
+.filterAlign{
+  position: relative;
+  left: -2px;
+}
+
+.button{
+float: right;
+margin: 5px;
+background: #ffffff;
+color: #737373;
+}
+.mat-card-title {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+// .mat-form-field {
+//   display: block;
+//   width: 10%;
+//   height: 42px;
+//   position: relative;
+//   border: none;
+//   text-align: left;
+// }

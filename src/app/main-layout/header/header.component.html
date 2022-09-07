@@ -1,0 +1,54 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div class="container" fxLayout  fxLayoutAlign="start center"  fxLayoutGap="10px">
+    <div class="container" fxLayout>
+      <div class="item item-1" fxFlex="5%" fxLayoutAlign="start center">
+        <button mat-icon-button [ngClass]="status ? 'success' : 'default'" (click)="toggleSidebar()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+
+      <div class="item item-2" fxFlex="25%"  fxFlex.md="35%" fxFlex.sm="45%" fxFlexOrder="2"  fxLayoutAlign="start center"> 
+        <div [ngClass]="status ? 'userPanel' : 'sub_container'" class="sub_container">
+          <div fxLayoutGap="20px"  fxLayoutAlign="start center">
+            <mat-icon matBadge="‎" matBadgeColor="warn" matBadgeSize="small"  class="icon pleft" style="color:#737373 ;">notifications_none</mat-icon> <span class="line">|</span>
+          </div>
+          <div class="row alignProfile mt-2" fxLayoutGap="25px"  fxLayoutAlign="start center">
+            <ul class="row align-items-center mt-3" fxLayoutAlign="start center">
+              <li>
+                <button mat-button [matMenuTriggerFor]="menu"  fxLayoutAlign="start center">
+                  <img src="./assets/user.jpg" alt="" class="user-image" />
+                  <span class="william">{{displayName}}</span>
+                  <mat-icon class="user-image-icon">keyboard_arrow_down</mat-icon>
+                </button>
+                
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="doLogout()">
+                    <mat-icon>exit_to_app</mat-icon>
+                    Logout
+                  </button>
+                </mat-menu>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="item item-3" fxFlex fxLayoutAlign="start center" fxLayoutGap="30px" >
+        <div>
+          <span class="searchicon"><mat-icon >search</mat-icon></span>
+        </div>
+        <div>
+          <input type="search" class="search" placeholder="Search here..."/>
+        </div>
+      </div>
+      <div class="item item-4" fxHide.xs fxFlex fxLayoutAlign="start center" fxLayoutGap="20px">
+        <div @fadeIn *ngIf="status" class="logo py-1">
+          <h2 style="font-family:Montserrat;">NavPulse</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+

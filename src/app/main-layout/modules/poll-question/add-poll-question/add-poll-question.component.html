@@ -1,0 +1,83 @@
+
+<div class="container">
+  <mat-card-header>
+    <mat-card-title class="head">Add Poll Questions</mat-card-title>
+</mat-card-header>
+<button mat-raised-button class="button" (click)="viewPollQuestions()">View Poll Questions</button>
+    <mat-card class="mat-card-form">
+      <mat-card-header>
+        <mat-card-title class="mat-card-title1">New Poll</mat-card-title>
+    </mat-card-header>
+    <mat-hint>Enter the following details to create a poll</mat-hint>
+        <mat-card-content>
+          <div>
+            <label>Category Name</label>
+            <mat-form-field appearance="outline">
+              <mat-select placeholder="-Select-">
+                <mat-option *ngFor="let category of categories" [value]="category.id">{{category.categoryName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <label>Poll Name</label>
+            <mat-form-field appearance = "outline">
+              <mat-select [(ngModel)] = "pollId" placeholder="-Select-">
+                <mat-option *ngFor="let poll of polls" [value]="poll.id">{{poll.pollName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <label>ADD POLL QUESTIONS</label>
+          </div>
+          <!-- <div>
+            <button mat-raised-button class="btn" (click)=addQuestion()><mat-icon>add_circle_outline</mat-icon> Add Question</button>
+          </div> -->
+          <!-- questions-->
+          <div >
+            <div [style.margin-top]="'30px'" *ngFor="let question of questions; let idx = index" class="addOptions">
+              <label class="p-2">Question {{idx + 1}}</label>
+              <div id="question">
+                <div class="form">
+                  <mat-form-field appearance="outline" floatLabel="always"  class="form">
+                      <input matInput placeholder="Enter Question here " class="place-holder-center" [(ngModel)]=question.question autocomplete="off">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <button mat-raised-button class="remove_btn" (click)="removeQuestion(idx)">Remove</button>
+                </div>    
+              </div>
+              <div *ngFor="let option of question.options; index as pollIdx"class="p-2">
+                <label>Option {{pollIdx + 1}}</label>
+                <div id="question">
+                  <div class="option">
+                    <mat-form-field appearance = "outline" class="option">
+                      <input matInput placeholder="Enter Option" [(ngModel)]=option.option class="place-holder-center" autocomplete="off">
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <button mat-raised-button class="remove_btn" (click)="removeOption(question, pollIdx)">Remove</button>
+                  </div>
+                  <div>
+                    <button mat-raised-button class="assign_weight">Assign Weights</button>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row" class="add-option">
+                <button mat-raised-button class="btnn" (click)="addOption(question)">Add Options</button>
+              </div>
+              <hr class="line">
+            </div>
+            
+          </div>
+      <div class="p-3 add_btns">
+        <button class="mat-raised-button btn1 btn-base submit-btn" (click)="savePoll()">Save</button>
+        <button class="mat-raised-button btn2 btn-base cancel-btn" (click)="addQuestion()">Add Questions</button>
+        <button class="mat-raised-button btn-base cancel-btn" (click)="cancel()">Cancel</button>
+      </div>
+            
+
+        </mat-card-content>
+    </mat-card> 
+  </div>
+  
+  

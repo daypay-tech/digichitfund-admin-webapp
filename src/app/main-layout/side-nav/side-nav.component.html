@@ -1,0 +1,24 @@
+<mat-nav-list>
+  <div class="logo py-1">
+    <h2 style="font-family:Montserrat;">NavPulse</h2>
+  </div>
+  <mat-divider></mat-divider>
+
+  <div *ngFor="let menu of menus">
+    <a href="javascript:void(0)" *ngIf="menu.subMenus.length == 0" mat-list-item  [ngClass]="menu.active == true ? 'list-item-active' : ''" 
+    (click)="routeMenu(menu)">
+      <mat-icon>{{menu.icon}}</mat-icon> {{menu.name}}
+    </a>
+    <mat-list-item [ngClass]="menu.active == true ? 'list-item-active' : ''" *ngIf="menu.subMenus.length != 0" (click)="showHideSubMenu(menu)">
+      <mat-icon>{{menu.icon}}</mat-icon>{{menu.name}}
+    </mat-list-item>
+    <div style="margin-left:20px ;" *ngIf="menu.showSubMenu && menu.active == true" @outAnimation>
+      <ul @inAnimation>
+        <li *ngFor="let subMenu of menu.subMenus">
+          <a href="javascript:void(0)" (click)="routeSubMenu(menu, subMenu)" mat-list-item [ngClass]="subMenu.active == true ? 'list-item-active' : ''" >{{subMenu.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</mat-nav-list>
+   

@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+    flex-direction: column;
+   height: 100%;
+  }
+
+mat-drawer {
+  width: 277px;
+  display: flow-root;
+  border-right: aliceblue;
+
+}
+mat-drawer-container {
+  height: 100%;
+display: flex;
+width: 100%;
+
+}
+mat-drawer-content{
+  background: #e2f7fc;
+  min-height: 100%;
+   overflow: auto;
+}

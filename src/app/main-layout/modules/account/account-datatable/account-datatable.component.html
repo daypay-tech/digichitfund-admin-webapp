@@ -1,0 +1,79 @@
+<div class="dataTable">
+  <div class="col-sm-12">
+    <div class="header" style="width: 96%;">
+      <mat-card-header>
+        <mat-card-title class="head">View Account</mat-card-title>
+      </mat-card-header>
+      <button mat-raised-button class="button" (click)="addAccount()">Add Account</button>
+      <button mat-raised-button class="button"><mat-icon class="filterAlign">filter_list</mat-icon>
+        Filter by
+      </button>
+      <button mat-raised-button class="button"><mat-icon class="sizeDot8">calendar_today</mat-icon>
+        2021-2022
+      </button>
+
+    </div>
+    <div class="p-3">
+      <mat-card>
+        <div class="example-container mat-elevation-z8">
+          <mat-card-title class="table_title">Account List</mat-card-title>
+              <table mat-table [dataSource]="dataSource">
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef class="table-header"> No. </th>
+                  <td mat-cell *matCellDef="let element let i = index"> {{i+1}}</td>
+                </ng-container>
+
+                <!--Category Name Column -->
+                <ng-container matColumnDef="firstName">
+                  <th mat-header-cell *matHeaderCellDef class="table-header">First Name</th>
+                  <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="lastName">
+                  <th mat-header-cell *matHeaderCellDef class="table-header">Last Name</th>
+                  <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+                </ng-container>
+
+                <!--Posted On Column -->
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef class="table-header">Email</th>
+                  <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="mobile">
+                  <th mat-header-cell *matHeaderCellDef class="table-header">Mobile</th>
+                  <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+                </ng-container>
+
+                <!-- <ng-container matColumnDef="userId">
+                  <th mat-header-cell *matHeaderCellDef class="table-header">Roles</th>
+                  <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+                </ng-container>
+               
+                <ng-container matColumnDef="edit">
+                  <th mat-header-cell *matHeaderCellDef class="table-header" style="text-align: center"> Edit </th>
+                  <td mat-cell *matCellDef="let element" class="column-container"
+                    style="text-align: center; color: hsla(210, 95%, 57%, 0.933)">
+                    <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" (click)="edit(element.id)">
+                      <mat-icon aria-label="Edit" title="Edit Question">edit</mat-icon>
+                    </button>
+                  </td>
+                </ng-container> -->
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              <div class="no-records-text mt-3" *ngIf="!dataSource || dataSource.data.length <= 0">No Records Found!</div>
+            </div>
+          </mat-card>
+        </div>
+    
+    <div class="p-3">
+      <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"
+        [pageIndex]="currentPage" [length]="totalSize" (page)="getAccountPaginatorData($event)">
+      </mat-paginator>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+
+<div fxLayout="row">
+      <div fxFlex="70">
+            <h3 class="subscriber-title">NavPulse Subscribers</h3>
+            <mat-hint> 80% increase in activity</mat-hint>
+      </div>
+    
+      <div fxFlex="30" fxLayoutAlign="end start">
+            <select class="fadeColor" [(ngModel)]="selectedYear"
+                        (change)='onYearChanged()'>
+                        <option class='option' 
+                        *ngFor='let smYear of smYears' 
+                        [value]="smYear.id">{{smYear.value}}</option> 
+            </select>
+      </div>
+</div>
+<div fxLayout="column" fxLayoutGap="20" >
+      <div>
+            <canvas baseChart width="480px" height="220px" style="max-height:300px"  fxFlex.xs="280px"
+                  [type]="'bar'"
+                  [datasets]="barChartData"
+                  [labels]="monthsLabels"
+                  [options]="lineChartOptions"
+                  [legend]="lineChartLegend">
+            </canvas>
+      </div>
+</div>
+
+
+
+
