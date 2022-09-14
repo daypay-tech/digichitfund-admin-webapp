@@ -12,11 +12,6 @@ table {
 .head{
   font-size: 23px;
 }
-mat-card{
-  max-width: 97%;
-  margin: auto;
-
-}
 .btn1 {
   color: #ffffff;
   background-color: #40a3dd;
@@ -53,10 +48,10 @@ mat-card{
   position: relative;
   left: -2px;
 }
-
+.btns{
+  margin-right: 17px;
+}
 .button{
-float: right;
-margin: 5px;
 background: #ffffff;
 color: #737373;
 }
@@ -64,11 +59,3 @@ color: #737373;
     margin-top: auto;
     margin-bottom: auto;
 }
-// .mat-form-field {
-//   display: block;
-//   width: 10%;
-//   height: 42px;
-//   position: relative;
-//   border: none;
-//   text-align: left;
-// }

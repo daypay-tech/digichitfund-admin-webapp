@@ -28,12 +28,12 @@ constructor(private router:Router,
   public snackbarService: SnackbarService) { 
 
 }
-viewPoll= () => {
-  this.router.navigate(['/poll/add-poll']);
+addMember= () => {
+  this.router.navigate(['/members/add-member']);
 }
 
 ngOnInit(): void {
-  this.getMembers();
+  // this.getMembers();
 }
 
 getMembers = () => {

@@ -24,7 +24,6 @@ import { MemberModule } from './modules/member/member.module';
 import {MatBadgeModule} from '@angular/material/badge'; 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { OrganizationModule } from './modules/organization/organization.module';
 
 
 @NgModule({

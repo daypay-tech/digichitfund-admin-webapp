@@ -15,9 +15,9 @@
 	color:  #72C6D8;
  }
 
-.content {
+.right-menu {
     background-color: white;
-    padding: 10px;
+    // padding: 10px;
   }
   
   .left-menu {
@@ -29,7 +29,7 @@
     width: 20rem;
   }
 
-  #dashboard{
+  #content{
     height: 100%;
     position: absolute;
     max-height: 100%;
@@ -65,4 +65,7 @@ h1{
 input{
     color: #72C6D8;
     caret-color: #72C6D8;
+}
+img{
+  width: 100%;
 }

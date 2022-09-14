@@ -8,12 +8,9 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: PreLoginComponent,
-  },
-  {
-    path: 'login',
     component: LoginFormComponent,
   },
+  
   {
     path: 'main',
     loadChildren: () => import(`./main-layout/main-layout.module`).then(

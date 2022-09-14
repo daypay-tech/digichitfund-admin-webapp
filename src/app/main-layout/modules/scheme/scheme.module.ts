@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MemberDatatableComponent } from './member-datatable/member-datatable.component';
-import { MemberComponent } from './member.component';
+import { AddSchemeComponent } from './add-scheme/add-scheme.component';
+import { EditSchemeComponent } from './edit-scheme/edit-scheme.component';
+import { SchemeDatatableComponent } from './scheme-datatable/scheme-datatable.component';
+import { SchemeComponent } from './scheme.component';
+import { SchemeRoutingModule } from './scheme-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -15,17 +18,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
-import { MemberRoutingModule } from './member-routing.module';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { AddMemberComponent } from './add-member/add-member.component';
-import { EditMemberComponent } from './edit-member/edit-member.component';
+
 
 @NgModule({
   declarations: [
-    MemberDatatableComponent,
-    MemberComponent,
-    AddMemberComponent,
-    EditMemberComponent
+    AddSchemeComponent,
+    EditSchemeComponent,
+    SchemeDatatableComponent,
+    SchemeComponent
   ],
   imports: [
     CommonModule,
@@ -40,11 +40,9 @@ import { EditMemberComponent } from './edit-member/edit-member.component';
     MatInputModule,
     FormsModule,
     MatListModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    MatDialogModule,
     MatDatepickerModule,
-    MemberRoutingModule
+    SchemeRoutingModule,
+    FlexLayoutModule
   ]
 })
-export class MemberModule { }
+export class SchemeModule { }

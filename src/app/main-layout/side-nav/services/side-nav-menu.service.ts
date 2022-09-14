@@ -10,90 +10,33 @@ export class SideNavMenuService {
 
   constructor(private storageService: StorageService) {
     this.menus = [
+          
       {
-        "name":'Dasboard',
-        "code":"dashboard",
-        "active":true,
-        "link":"/dashboard",
-        "subMenus":[],
-        "icon":"dashboard",
-        "roles":['ROLE_ADMIN','ROLE_SUPER_ADMIN']
-      },
-      {
-        "name":'Category',
-        "code":"category",
+        "name":'Scheme',
+        "code":"scheme",
         "active":false,
-        "link":"/category",
-        "icon":"view_list",
-        "showSubMenu":false,
-        "roles":['ROLE_ADMIN'],
-        "subMenus":[
-          {
-            "name":'Add Category',
-            "code":"add_category",
-            "active":false,
-            "link":"/category/add-category",
-            "icon":"dashboard"
-          },
-          {
-            "name":'View Category',
-            "code":"view_category",
-            "active":false,
-            "link":"/category",
-            "icon":"view_list"
-          }
-        ]
-      },
-      {
-        "name":'Poll',
-        "code":"poll",
-        "active":false,
-        "link":"/poll",
+        "link":"/scheme",
         "icon":"add_circle_outline",
         "showSubMenu":false,
         "roles":['ROLE_ADMIN'],
         "subMenus":[
           {
-            "name":'Add Poll',
-            "code":"add_poll",
+            "name":'Add Scheme',
+            "code":"add_scheme",
             "active":false,
-            "link":"/poll/add-poll",
+            "link":"/scheme/add-scheme",
             "icon":"add_circle_outline"
           },
           {
-            "name":'View Poll',
-            "code":"view_poll",
+            "name":'View scheme',
+            "code":"view_scheme",
             "active":false,
-            "link":"/poll",
+            "link":"/scheme",
             "icon":"add_circle_outline"
           }
         ]
       },
-      {
-        "name":'Poll Question',
-        "code":"poll_question",
-        "active":false,
-        "link":"/poll-question",
-        "icon":"assessment",
-        "showSubMenu":false,
-        "roles":['ROLE_ADMIN'],
-        "subMenus":[
-          {
-            "name":'Add Poll Question',
-            "code":"add_poll_question",
-            "active":false,
-            "link":"/poll-question/add-poll-question",
-            "icon":"add_circle_outline"
-          },
-          {
-            "name":'View Poll Question',
-            "code":"view_poll_question",
-            "active":false,
-            "link":"/poll-question",
-            "icon":"add_circle_outline"
-          }
-        ]
-      },
+
       {
         "name":'Members',
         "code":"members",
@@ -103,86 +46,27 @@ export class SideNavMenuService {
         "icon":"group",
         "roles":['ROLE_ADMIN']
       },
-      {
-        "name":'Organizations',
-        "code":"organizations",
-        "active":false,
-        "link":"/organization",
-        "icon":"view_list",
-        "roles":['ROLE_SUPER_ADMIN'],
-        "showSubMenu":false,
-        "subMenus":[
-          {
-            "name":'Add Organizations',
-            "code":"add_organizations",
-            "active":false,
-            "link":"/organization/add-organization",
-            "icon":"dashboard"
-          },
-          {
-            "name":'View Organization',
-            "code":"view_organization",
-            "active":false,
-            "link":"/organization",
-            "icon":"view_list"
-          }
-        ]
-      },
-      {
-        "name":'Account',
-        "code":"account",
-        "roles":['ROLE_SUPER_ADMIN'],
-        "active":false,
-        "link":"/account",
-        "icon":"view_list",
-        "showSubMenu":false,
-        "subMenus":[
-          {
-            "name":'Add Account',
-            "code":"add_account",
-            "active":false,
-            "link":"/account/add-account",
-            "icon":"dashboard"
-          },
-          {
-            "name":'View Account',
-            "code":"view_account",
-            "active":false,
-            "link":"/account",
-            "icon":"view_list"
-          }
-        ]
-      },
      
-      // {
-      //   "name":' Poll Preview',
-      //   "code":"poll_preview",
-      //   "active":false,
-      //   "link":"/poll-preview",
-      //   "subMenus":[],
-      //   "icon":"deck"
-      // },
     ]
   }
 
-  public getAllMenusBasedOnRoles = () => {
-    let roles = this.storageService.getRoles();
-    let menus: any[] = [];
-    for(let m = 0; m < this.menus.length; m++) {
-      let roleCodes = this.menus[m]['roles'];
-      for(let r = 0; r < roleCodes.length; r++) {
-        for(let i = 0; i < roles.length; i++) {
-          if(roleCodes[r] == roles[i]['code']) {
-            menus.push(this.menus[m]);
-          }
-        }
-      }
-    }
-    return menus;
-  }
+  // public getAllMenusBasedOnRoles = () => {
+  //    let roles = this.storageService.getRoles();
+  //   let menus: any[] = [];
+  //   for(let m = 0; m < this.menus.length; m++) {
+  //     for(let r = 0; r < roleCodes.length; r++) {
+  //       for(let i = 0; i < roles.length; i++) {
+  //         if(roleCodes[r] == roles[i]['code']) {
+  //           menus.push(this.menus[m]);
+  //         }
+  //       }
+  //     }
+  //   }
+  //   return menus;
+  // }
 
   public getMenus = () => {
-    return this.getAllMenusBasedOnRoles();
+    return this.menus;
   }
 
   public showHideSubMenu = (menuCode: any, showSubMenu: boolean) => {

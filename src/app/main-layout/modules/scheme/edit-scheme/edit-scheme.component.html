@@ -1,0 +1,56 @@
+<div fxLayout="column" class="p-3">
+  <div>
+      <mat-card-header>
+          <mat-card-title class="head">Add Scheme</mat-card-title>
+      </mat-card-header>
+      <button mat-raised-button class="button" (click)="viewScheme()">View Scheme</button>
+  </div>
+  <div>
+      <mat-card class="mat-card-form">
+          <div>
+              <mat-card-header>
+                  <mat-card-title class="mat-card-title1">New Scheme</mat-card-title>
+              </mat-card-header>
+              <mat-hint>Give your Scheme a name</mat-hint>
+              <mat-card-content>
+                  <label>Scheme name</label>
+                  <mat-form-field appearance="outline" floatLabel="always">
+                      <input matInput [(ngModel)] = "schemeName"  class="place-holder-center" autocomplete="off">
+                  </mat-form-field>
+
+                  <label>Total Amount</label>
+                  <mat-form-field appearance="outline" floatLabel="always">
+                      <input matInput [(ngModel)] = "totalAmount"  class="place-holder-center" autocomplete="off">
+                  </mat-form-field>
+
+                  <label>Total Members</label>
+                  <mat-form-field appearance="outline" floatLabel="always">
+                      <input matInput [(ngModel)] = "totalMembers"  class="place-holder-center" autocomplete="off">
+                  </mat-form-field>
+
+                  <label>Calender Type</label>
+                  <mat-form-field appearance="outline">
+                    <mat-select [(ngModel)] = "schemeId">
+                      <mat-option *ngFor="let scheme of schemes"  [value]="scheme.id">{{scheme.schemeName}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  
+                  <label>Start date</label>
+                  <mat-form-field appearance="outline">
+                    <input matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+                  <label>Start Time</label>
+                  <mat-form-field appearance="outline" floatLabel="always">
+                    <input matInput type="time" [(ngModel)] = "startTime"  class="place-holder-center" autocomplete="off">
+                  </mat-form-field>
+
+                  <button class="btn-base submit-btn" (click)="editScheme()">Update</button>
+                  <button class="btn-base cancel-btn" (click)="cancel()">Cancel</button>
+              </mat-card-content>
+          </div>
+      </mat-card>
+  </div>
+</div>

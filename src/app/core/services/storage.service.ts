@@ -17,12 +17,12 @@ export class StorageService {
     }
   }
 
-  public getRoles = () => {
-    let user = this.getUserData();
-    if(user) {
-      return user['roles'];
-    }
-  }
+  // public getRoles = () => {
+  //   let user = this.getUserData();
+  //   if(user) {
+  //     return user['roles'];
+  //   }
+  // }
 
   public clear() {
       window.localStorage.removeItem("user");
