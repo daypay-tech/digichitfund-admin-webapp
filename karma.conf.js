@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/navpluseuk-admin-webapp'),
+      dir: require('path').join(__dirname, './coverage/digichitfund-admin-webapp'),
       subdir: '.',
       reporters: [
         { type: 'html' },

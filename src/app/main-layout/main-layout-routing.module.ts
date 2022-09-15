@@ -24,6 +24,14 @@ const routes: Routes = [
         path: 'scheme', 
         loadChildren: () => import('./modules/scheme/scheme.module').then((m) => m.SchemeModule) 
       },
+      { 
+        path: 'auction', 
+        loadChildren: () => import('./modules/auction/auction.module').then((m) => m.AuctionModule) 
+      },
+      { 
+        path: 'schedule', 
+        loadChildren: () => import('./modules/scheme/scheme.module').then((m) => m.SchemeModule) 
+      },
     ]
   }
 ];

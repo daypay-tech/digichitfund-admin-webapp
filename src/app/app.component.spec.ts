@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'navpluseuk-admin-webapp'`, () => {
+  it(`should have as title 'digichitfund-admin-webapp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('navpluseuk-admin-webapp');
+    expect(app.title).toEqual('digichitfund-admin-webapp');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('navpluseuk-admin-webapp app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('digichitfund-admin-webapp app is running!');
   });
 });

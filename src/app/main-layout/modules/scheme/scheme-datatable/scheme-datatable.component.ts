@@ -14,8 +14,7 @@ import { SnackbarService } from 'src/app/shared/services/snackbar/snackbar.servi
 export class SchemeDatatableComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['id','schemeName','totalAmount', 'totalMembers','calenderType','startDate',
-  'publish','addMember','edit','delete'];
+  displayedColumns: string[] = ['id','schemeName','totalAmount', 'totalMembers','startDate','action'];
   public dataSource = new MatTableDataSource<any>();
     categoryName: any;
     public paginator: MatPaginator | undefined;

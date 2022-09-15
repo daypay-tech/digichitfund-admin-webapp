@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'navpluseuk-admin-webapp';
+  title = 'digichitfund-admin-webapp';
 
 sideBarOpen = true;
 

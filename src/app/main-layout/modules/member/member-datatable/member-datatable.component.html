@@ -6,16 +6,27 @@
           <mat-card-title class="head">View Members</mat-card-title>
         </mat-card-header>
       </div>
-      <div fxFlex="50" fxLayoutAlign="end center" fxLayoutGap="5" fxLayoutAlign.xs="center center"  fxLayoutAlign.sm="space-evenly center" class="btns">
-        <div>
-          <button mat-raised-button class="button" (click)="addMember()">Add Scheme</button>
-        </div>
-      </div>
     </div>
   </div>
   <div class="col-sm-12">
     <div class="p-3">
-      <mat-card>
+      <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="10px">
+        <div fxLayoutAlign="center center">
+          <mat-form-field appearance="outline">
+            <mat-label>Member</mat-label>
+            <mat-select >
+              <mat-option value="">ALL</mat-option>
+              <mat-option>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+       
+        <div fxLayoutAlign="center center" class="mb-3">
+          <button class="btn-base submit-btn">Search</button>
+        </div>
+    </div>
+    <mat-card>
         <div class="example-container mat-elevation-z8">
           <mat-card-title class="table_title">Member Details</mat-card-title>
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
