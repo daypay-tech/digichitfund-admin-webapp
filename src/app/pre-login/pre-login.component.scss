@@ -1,0 +1,51 @@
+.content {
+    background-color: white;
+    padding: 10px;
+  }
+  
+  .left-menu {
+    background-color: #E2F7FC;
+    padding: 10px;
+  }
+
+  mat-form-field{
+    width: 23rem;
+  }
+
+  #dashboard{
+    height: 100%;
+    position: absolute;
+    max-height: 100%;
+    width: 100%;
+  }
+
+  .btn{
+	width:100%;
+	background-color: #72C6D8;
+	color: #fff;
+	font-size: 1.1rem;
+	font-family: "Montserrat";
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+}
+
+mat-label{
+	font-family: "Montserrat";
+    font-size: medium;
+    font-weight: 500;
+ }
+
+h1{
+	font-family: "Montserrat";
+ }
+
+ .mat-card-header .mat-card-title {
+    font-size: x-large;
+    font-weight: 600;
+}
+input{
+    color: #72C6D8;
+    caret-color: #72C6D8;
+  }

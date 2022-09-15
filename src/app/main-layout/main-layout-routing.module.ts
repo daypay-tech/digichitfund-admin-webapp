@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from './main-layout.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
-import { DashboardComponent } from '../dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -12,11 +10,7 @@ const routes: Routes = [
     component: MainLayoutComponent,
     children: [
 
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-
+     
       {
         path: 'home',
         component: HomeComponent

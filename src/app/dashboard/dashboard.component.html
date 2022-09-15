@@ -1,0 +1,238 @@
+<div class="container">
+  <div class="mt-2">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+      <div fxFlex="50" class="mt-3">
+        <mat-card-header>
+          <mat-card-title class="head">Dashboard</mat-card-title>
+        </mat-card-header>
+      </div>
+    <div fxFlex="50" fxLayoutAlign="end center" fxLayoutGap="20" class="mt-5" fxLayoutAlign.xs="space-evenly center"  fxLayoutAlign.sm="space-evenly center" >
+      <div>
+        <button mat-raised-button class="button">
+          <mat-icon class="filterAlign">filter_list</mat-icon>
+          Filter by
+        </button>
+      </div>
+      <div>
+        <button mat-raised-button class="button">
+          <mat-icon class="alignIcon ">calendar_today</mat-icon>
+          2021-2022
+        </button>
+      </div>
+    </div>
+    
+    </div>
+   
+  </div>
+  <br>
+  <div class="container p-3">
+    <div fxLayout="row" fxLayout.lt-md="column"  fxLayout.xs="column" fxLayoutAlign="start center" fxLayoutGap="20">  
+      <div fxFlex="33">
+        <div class="card p-4 count-poll" >
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20">
+            <div fxFlex="50">
+              <h1>6,282</h1>
+              <h3 class="text-primary polls">Published Polls</h3>
+              <mat-hint>All published polls in the last few months</mat-hint>
+            </div>
+            <div fxFlex="50"><img style="width:90%;" src="./assets/11-nobg.png"></div>
+          </div>
+        </div>
+      </div>  
+      <div fxFlex="33" >
+        <div class=" card p-4 count-poll" >
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20">
+            <div fxFlex="50">
+              <h1>6,282</h1>
+              <h3 class="text-success polls">Completed Polls</h3>
+              <mat-hint>Polls completed in the last few months</mat-hint>
+            </div>      
+            <div fxFlex="50">
+              <img style="width:90%;" src="./assets/22nobg.png">
+            </div>
+          </div>
+        </div>
+      </div>  
+      <div fxFlex="33">
+        <div class=" card p-4 count-poll" >
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20">
+            <div fxFlex="50">
+              <h1>6,282</h1>
+              <h3 class="text-warning polls">Pending Polls</h3>
+              <mat-hint>Polls pending or yet be completed soon</mat-hint>
+            </div>       
+            <div fxFlex="50">
+              <img style="width: 90%; " src="./assets/33-nobg.png">
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div> 
+  </div>
+  <div class="container p-3">
+    <div fxLayout="row" fxLayout.sm="column"   fxLayout.xs="column" fxLayoutAlign="start center" fxLayoutGap="20" >  
+      <div fxFlex="66">
+        <div class="p-3 card subscribers">
+          <app-trending-chart></app-trending-chart>
+        </div>
+      </div>  
+      <div fxFlex="33" fxFlex.md="300px">
+        <div class="p-3 card users ps-22r" fxFlex.sm="320px" fxFlex.xs="320px">
+          <div fxLayout="row">
+            <div fxFlex="70">
+              <label class="headerFont">56,688</label>
+              <br>
+              <mat-hint class="smHint">Users from all channels</mat-hint>
+            </div>
+            <div fxFlex="33">
+              <select class= "yearAlign fadeColor" >
+                <option *ngFor="let smYear of smYears" [value]="smYear.id">
+                  {{smYear.value}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div *ngFor="let progress of progresses" class="progressDiv">
+            <hr class="line">
+    
+            <img class="alignIcons" src="/assets/{{progress.icon}}" />
+            <p class="socialapp-name">{{progress.name}}</p>
+            <mat-progress-bar [appProgressBarColor]="progress.color" class="progressBar" mode="determinate"
+              value={{progress.percent}}></mat-progress-bar><label class="alignPercent">{{progress.percent}}%</label>
+          </div>
+      </div>  
+    </div>   
+  </div>
+</div>
+
+    <div class="container p-3">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.lt-md="column" fxLayoutAlign="start center" fxLayoutGap="20">
+        <div class="card p-3 results">
+          <div>
+            <h3>Choose Poll to View Results</h3>
+            <div>
+              <mat-label>Category Name</mat-label>
+              <mat-form-field appearance="outline" class="form">
+                <mat-select [(ngModel)] = "categoryId" (selectionChange)= "fetchPollByCategory()">
+                  <mat-option *ngFor= "let category of categories" [value]= "category.id">{{category.categoryName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-label>Poll Name</mat-label>
+              <mat-form-field appearance="outline" floatLabel="never" class="form">
+                <mat-select [(ngModel)] = "pollId">
+                  <mat-option  *ngFor="let poll of polls" [value]= "poll.id">{{poll.pollName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>            
+          </div>
+          <div fxLayout="row" fxLayout.xs="column"  fxLayoutGap="20" 
+          fxLayoutAlign.xs="space-around center" fxLayoutAlign="start start" >
+            <div>
+              <button class="btn-base submit-btn" (click)="submit()" value="yes">Submit</button>      
+            </div>
+            <div>
+              <button class="btn-base cancel-btn" (click)="cancel()">Cancel</button>
+            </div>
+            <div>
+              <button class="btn-base refresh-btn" (click)="submit()">Refresh</button>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <div fxLayout="row" fxLayout.xs="column">
+              <div  fxFlex="50">
+                <h3>POLL QUESTIONS RESULTS</h3>
+              </div>
+              <div  fxLayoutAlign="end start" fxLayoutGap="20"  fxFlex="50"  fxLayoutAlign.xs="end center">
+                <select class= "filter fadeColor" placeholder="Filter" >
+                  <mat-icon>Filter</mat-icon>
+                  <option value="" disabled selected>Filter by</option>
+                  <option *ngFor="let filter of filters" [value]="filter.id">
+                    {{filter.value}}
+                  </option>
+                </select>
+                <select class= "filter fadeColor" >
+                  <option *ngFor="let smYear of smYears" [value]="smYear.id">
+                    {{smYear.value}}
+                  </option>
+                </select>
+            </div>
+            </div>
+            <div class="row">
+              <div fxLayout="row" fxLayout.xs="column" fxLayout.lt-md="column" [style.margin-top]="'12px'">
+                <div fxFlex="50">
+                  <h4 class="text-primary">Overall Age Cohort Results</h4>
+                  <canvas baseChart width="564px" height="250px"
+                    [type]="'bar'"
+                    [datasets]="overallAgeCohortChartData"
+                    [labels]="overallAgeCohortChartLabels"
+                    [options]="overallAgeCohortChartOptions"
+                    [legend]="true">
+                  </canvas>
+              </div>
+              <div fxFlex="50">
+                <h4 class="text-primary">Overall Gender Cohort Results</h4>
+                <canvas baseChart width="564px" height="250px"
+                  [type]="'bar'"
+                  [datasets]="overallGenderCohortChartData"
+                  [labels]="overallGenderCohortChartLabels"
+                  [options]="overallGenderCohortChartOptions"
+                  [legend]="false">
+                </canvas>
+              </div>
+            </div>
+            <hr>
+            <div *ngFor="let qus of questions;let idx = index">
+              <div fxLayout="row">
+                <mat-hint class="poll-question">Question {{idx + 1}} : {{qus.question}}</mat-hint>
+              </div>
+              <div fxLayout="row" fxLayout.xs="column" fxLayout.lt-md="column" [style.margin-top]="'12px'">
+                <div fxFlex="50">
+                  <h4 class="text-primary"> Top Poll Results</h4>
+                  <canvas id="canvas_top_overall_chart_{{idx}}" baseChart
+                    [type]="'bar'"
+                    [datasets]="qus.pollOverallResultChartData.barChartData"
+                    [labels]="qus.pollOverallResultChartData.chartLabels"
+                    [options]="qus.pollOverallResultChartData.chartOptions"
+                    [legend]="false">
+                  </canvas>
+                </div>
+                <div fxFlex="50">
+                  <h4 class="text-primary"> Gender Cohort Results</h4>
+                  <canvas id="canvas_question_gender_chart_{{idx}}" baseChart
+                    [type]="'bar'"
+                    [datasets]="qus.genderChartData.barChartData"
+                    [labels]="qus.genderChartData.chartLabels"
+                    [options]="qus.genderChartData.chartOptions"
+                    [legend]="false">
+                  </canvas>
+                </div>
+              </div>
+              <div fxLayout="row" [style.margin-top]="'12px'" fxLayout.xs="column" fxLayout.lt-md="column">
+                <div fxFlex="50">
+                  <div fxLayout="row">
+                    <h4 class="text-primary">Age Cohort Results</h4>
+                  </div>
+                  <div fxLayout="row">
+                    <canvas id="canvas_question_age_chart_{{idx}}" baseChart
+                      [type]="'bar'"
+                      [datasets]="qus.optionAgeChartData.barChartData"
+                      [labels]="qus.optionAgeChartData.chartLabels"
+                      [options]="qus.optionAgeChartData.chartOptions"
+                      [legend]="true">
+                    </canvas>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <hr class="poll">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
