@@ -1,9 +1,0 @@
-<mat-card *ngFor="let chart of charts; let i = index">
-    <div class="text-center"><label>{{chart.question}}</label></div>
-    <canvas id="canvas_{{i}}" baseChart
-    [data]="chart.chartDatasets"
-    [options]="chart.chartOptions"
-    [plugins]="chart.chartPlugins"
-    [type]="'bar'">
-    </canvas>
-</mat-card>
