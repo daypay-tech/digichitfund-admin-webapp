@@ -26,8 +26,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class AuctionDatatableComponent implements OnInit {
 
   displayedColumns: string[] = ['id','date','time','status','action'];
-  public categories: any[] = [];
-  public categoryId: any;
+  public schemes: any[] = [];
+  public schemeId: any;
   public paginator: MatPaginator | undefined;
   public PAGE_DFAULT_SIZE = 2;
   public page: any = 0;
@@ -35,12 +35,10 @@ export class AuctionDatatableComponent implements OnInit {
   public currentPage = 0;
   public totalSize: number= 0;
   public isRefreshing = false;
-  public pollId: any;
-  public polls: any[] = [];
-
+ 
 //  public dataSource = new MatTableDataSource<any>();
  dataSource = ELEMENT_DATA;
- categoryName: any;
+ schemeName: any;
 
 constructor(private router:Router,
   private cdr:ChangeDetectorRef, 
@@ -61,32 +59,31 @@ ngOnInit(): void {
 
 getCategories = () => {
   this.httpService.get('categories/flat').subscribe(res => {
-    this.categories = res;
-    this.getPollData();
+    this.schemes = res;
+    this.getAuctionData();
   })
 }
 
 getScheme = () => {
   let url = 'polls/flatPolls';
-  if(this.categoryId && this.categoryId != '') {
-    url = url +'?categoryId='+this.categoryId;
+  if(this.schemeId && this.schemeId != '') {
+    url = url +'?schemeId='+this.schemeId;
   }
   this.httpService.get(url).subscribe(res => {
-    this.polls = res;
   })
 }
 
 public fetchAuctionByScheme() {
   this.currentPage = 0;
   this.pageSize = this.PAGE_DFAULT_SIZE;
-  this.getPollData();
+  this.getAuctionData();
 }
 
-getPollData = () => {
+getAuctionData = () => {
   let page = this.currentPage + 1;
   let url = 'polls?page='+page+'&pageSize='+this.pageSize;
-  if(this.categoryId && this.categoryId != '') {
-    url = url +'&categoryId='+this.categoryId;
+  if(this.schemeId && this.schemeId != '') {
+    url = url +'&schemeId='+this.schemeId;
   }
   this.httpService.get(url).subscribe(res => {
     // this.refreshDataTable(res);
@@ -96,7 +93,7 @@ getPollData = () => {
 public getPaginatorData(event: PageEvent) {
   this.currentPage = event.pageIndex;
   this.pageSize = event.pageSize;
-  this.getPollData();
+  this.getAuctionData();
 }
 
 // private refreshDataTable = (res: any) => {
@@ -120,7 +117,7 @@ public getPaginatorData(event: PageEvent) {
     this.httpService.delete('auction/'+id, payload).subscribe(res => {
       this.snackbarService.showSuccessMessage("Successfully Deleted..");
       this.router.navigate(['/auction']);
-      this.getPollData();
+      this.getAuctionData();
     })
   }
 }

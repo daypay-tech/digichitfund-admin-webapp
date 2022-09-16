@@ -5,7 +5,7 @@ mat-card-content{
   
   .btn1 {
     color: #ffffff;
-    background-color: #72C6D8;
+    background-color: #3c389b;
     width: 120px;
     height: 35px;
     border-radius: 3px;
@@ -30,7 +30,7 @@ mat-card-content{
     width: 100%;
   }  
   input, select, textarea{
-    color: #72C6D8;
+    color: #3c389b;
   }
   label{
     font-weight: 500;
@@ -40,8 +40,8 @@ mat-card-content{
    font-size: 11px;
   }
   input{
-    color: #72C6D8;
-    caret-color: #72C6D8;
+    color: #3c389b;
+    caret-color: #3c389b;
   }
   
   .input:focus {

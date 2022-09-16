@@ -9,7 +9,7 @@
 }
 .logo {
   text-align: center;
-  color:  #72C6D8;
+  color:  #3c389b;
   padding: 2.6rem 1rem;
   position: relative;
   top: 5px;
@@ -34,12 +34,10 @@
   height: 44px !important;
   margin-bottom: 4px;
   &:hover {
-    background: #E2F7FC !important;
+    background: #d7ddff !important;
   }
   ::ng-deep {
     .mat-list-item-content {
-      border-radius: 5px;
-      margin: 0 8px;
       //@at-root&:hover {
         //background: #2c3344 !important;
       //}
@@ -53,12 +51,12 @@
   //   background: blue;
   // }
 
-  color: #72C6D8;
+  color: #3c389b;
   ::ng-deep {
     .mat-list-item-content {
-      background:  #E2F7FC !important; 
+      background:  #d7ddff !important; 
       &:hover {
-        background:  #E2F7FC !important;
+        background:  #d7ddff !important;
       }
     }
   }
@@ -80,8 +78,8 @@
 .mat-nav-list .mat-list-item:focus, 
 .mat-action-list .mat-list-item:hover, 
 .mat-action-list .mat-list-item:focus {
-  background: #F4FBEC;
-  color: #72C6D8; 
+  background: #d7ddff;
+  color: #3c389b; 
 }
 
 .icons{

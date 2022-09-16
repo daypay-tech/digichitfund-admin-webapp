@@ -16,9 +16,9 @@
     <div fxLayoutAlign="center center">
       <mat-form-field appearance="outline">
         <mat-label>Scheme</mat-label>
-        <mat-select [(ngModel)]="categoryId" (selectionChange)="getScheme()">
+        <mat-select [(ngModel)]="schemeId" (selectionChange)="getScheme()">
           <mat-option value="">ALL</mat-option>
-          <mat-option *ngFor="let category of categories" [value]="category.id">{{category.categoryName}}
+          <mat-option *ngFor="let scheme of schemes" [value]="scheme.id">{{scheme.schemeName}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -39,22 +39,19 @@
                   <td mat-cell *matCellDef="let element let i = index"> {{i+1}}</td>
                 </ng-container>
 
-                <!--Category Name Column -->
                 <ng-container matColumnDef="date">
                   <th mat-header-cell *matHeaderCellDef class="table-header">Date</th>
                   <td mat-cell *matCellDef="let element"> {{element.date}} </td>
                 </ng-container>
 
-                <!--Created By Column -->
                 <ng-container matColumnDef="time">
                   <th mat-header-cell *matHeaderCellDef class="table-header">Time</th>
                   <td mat-cell *matCellDef="let element">{{element.time}}</td>
                 </ng-container>
 
-                <!--Created By Column -->
                 <ng-container matColumnDef="status">
                   <th mat-header-cell *matHeaderCellDef class="table-header">Status</th>
-                  <td mat-cell *matCellDef="let element">{{element.time}}</td>
+                  <td mat-cell *matCellDef="let element">{{element.status}}</td>
                 </ng-container>
 
                 <!-- Action Column -->
