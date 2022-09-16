@@ -30,7 +30,7 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit(){
     {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/scheme']);
     }
   }
 }

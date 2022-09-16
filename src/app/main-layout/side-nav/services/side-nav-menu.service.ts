@@ -47,21 +47,21 @@ export class SideNavMenuService {
         "roles":['ROLE_ADMIN']
       },
       {
-        "name":'Auction',
+        "name":'Auction Schedule',
         "code":"auction",
         "active":false,
         "link":"/auction",
         "subMenus":[],
-        "icon":"gavel",
+        "icon":"insert_invitation",
         "roles":['ROLE_ADMIN']
       },
       {
-        "name":'Schedule',
-        "code":"schedule",
+        "name":'Invite',
+        "code":"invite",
         "active":false,
-        "link":"/schedule",
+        "link":"/invite",
         "subMenus":[],
-        "icon":"insert_invitation",
+        "icon":"email",
         "roles":['ROLE_ADMIN']
       },
     ]

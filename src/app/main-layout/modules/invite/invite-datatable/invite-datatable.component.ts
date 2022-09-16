@@ -19,13 +19,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-auction-datatable',
-  templateUrl: './auction-datatable.component.html',
-  styleUrls: ['./auction-datatable.component.css']
+  selector: 'app-invite-datatable',
+  templateUrl: './invite-datatable.component.html',
+  styleUrls: ['./invite-datatable.component.css']
 })
-export class AuctionDatatableComponent implements OnInit {
+export class InviteDatatableComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','date','time','status','action'];
+ 
+  displayedColumns: string[] = ['id','mobileNumber','email','status','action'];
   public categories: any[] = [];
   public categoryId: any;
   public paginator: MatPaginator | undefined;
@@ -110,11 +111,7 @@ public getPaginatorData(event: PageEvent) {
 //   }
 // }
 
-  edit = (id: any) => {
-    this.router.navigate(['/auction'], {queryParams:{id: id}});
-    console.log(id)
-  }
- 
+  
   delete (id: any) {
     let payload = {};
     this.httpService.delete('auction/'+id, payload).subscribe(res => {

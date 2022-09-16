@@ -19,7 +19,7 @@ export class MemberDatatableComponent implements OnInit {
   public totalSize: number= 0;
   public isRefreshing = false;
 
-displayedColumns: string[] = ['id','firstName','lastName','email','mobile','edit','delete'];
+displayedColumns: string[] = ['id','firstName','lastName','email','mobile','action'];
  public dataSource = new MatTableDataSource<any>();
 
 constructor(private router:Router,
