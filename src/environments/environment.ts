@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-    // baseURL: 'https://stage.nav-pulse.com'
-    baseURL: 'http://192.168.0.123:9191'
+    baseURL: 'http://localhost:9191'
+    // baseURL: 'http://192.168.0.123:9191'
 };
 
 /*

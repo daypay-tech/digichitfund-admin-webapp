@@ -30,8 +30,8 @@
 
                   <label>Calender Type</label>
                   <mat-form-field appearance="outline">
-                    <mat-select>
-                      <mat-option *ngFor="let scheme of schemes" [value]="scheme.id">
+                    <mat-select [(ngModel)] = "calendar">
+                      <mat-option *ngFor="let scheme of calendarList" [value]="scheme">
                         {{scheme.value}}
                       </mat-option>
                     </mat-select>
@@ -39,7 +39,7 @@
                   
                   <label>Start date</label>
                   <mat-form-field appearance="outline">
-                    <input matInput [matDatepicker]="picker">
+                    <input matInput [matDatepicker]="picker" [(ngModel)] = "startDate">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
